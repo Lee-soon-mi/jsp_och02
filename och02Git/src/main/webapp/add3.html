@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	/* 
+		웹 프로그래밍의 이해
+		www 요청에 의해 웹 페이지를 찾아서 보내주는 일을 하는 컴퓨터를 웹서버라 한다.
+		현재 교육에서는 웹서버로 톰캣을 설치 하였다.
+	
+		// HTTP(TCP/IP를 기반으로) 프로토콜을 이용해서 요청/응답 데이터를 전송하는 방식
+		// request(요청) ==> 인터넷(서버-TMAX,제우스,톰캣 등) <==  response(응답)
+	
+		//프로토콜 : 네트워크 상에서 약속한 통신 규약, 기계간의 약속(규칙)
+		//프로토콜(Protocol) : 네트워크상에서 약속한 통신규약 (Http, FTP, SMTP(simple-mail 메일전송), POP, DHCP) 
+		
+		//1. HTTP 요청
+		//	1)HTTP 메소드
+		//	문서를 생성하는 프로그램 호출해서 실행 결과 보내주는 일도 한다.
+		
+		//2. HTTP 응답
+		
+		//② JSP(Java Server Pages) : JSP 또한 Java 라는 언어를 기반으로 하여 만들어진 것이지만, ASP, 
+		//PHP처럼 동적 컨텐츠를 생성하기 위해 스크립트 언어 형식으로 프로그램을 작성할 수 있어
+		//개발자에게 쉬운 개발을 할 수 있게 함. 사용자가 직접 태그를 정의해서 사용할 수 있는 사용
+		//자 정의 태그를 지정할 수 있는 기능을 갖고 있다. 
+		
+		//웹서버(Web Server:World Wide Web Server) : 톰캣(WAS 서버의 일종)
+		
+		//WAS (Web Application Serve)
+		//: 정적 파일을 전달하는 웹서버와 달리, 비즈니스 로직을 처리해 동적 콘텐츠를 생성하고 관리하는 서버 시스템입니다.
+		
+		//>Tomcat 디렉토리
+		//C:\Program Files\Apache Software Foundation\Tomcat 10.1
+		
+		//webapps : 개발자가 개발한 소스파일을 배포하는 경로
+		
+		//> IP : 네트워크상에서 컴퓨터를 식별할 수 있는 주소
+		//- DNS : IP주소를 인간이 쉽게 외우도록 맵핑한 문자열. IP주소가 컴퓨터를 식별할 수 있게 해준다
+		//- Port : Port번호는 해당 컴퓨터의 구동되고 있는 프로그램을 구분할 수 있는 번호
+		//        논리적 Server를 구별하기 위한 번호
+		
+	*/
+	 //client : 유효성 체크
+	// 현장work
+	function chk() {
+		if(!frm.num.value){
+			alert("숫자 입력 않하니");
+			frm.num.focus();
+			return false;
+		}
+
+		if(isNaN(frm.num.value)){
+			alert("숫자가 뭔지 모르니! 헐 ?");
+			frm.num.focus();
+			frm.num.value="";	//입력된 글자 지우기
+			return false;
+		}
+		return true;
+	}	
+
+</script>
+</head>
+<body>
+	<h1>숫자를 입력하세요</h1>
+	<!-- <form action="Add3" name="frm" method="get" onsubmit="return chk()"> -->
+	<!-- 1. onsubmit="return" 값이 true이면 서버 프로그램으로 이동한다. -->
+	<!-- 2. action="Add3" : 서버 프로그램(java) 호출할 때 -->
+	<!-- 3. method="post" 방식에 의해 메소드를 호출한다. -->
+	<form action="Add3" name="frm" method="post" onsubmit="return chk()">
+		숫자 : <input type="text" name="num" ><p>
+		문자 : <input type="text" name="han"><p>
+			  <input type="submit" name="확인"><p>
+	</form>
+</body>
+</html>
